@@ -7,12 +7,10 @@ CREATE TABLE orders(
   total_price DECIMAL(8,2) NOT NULL,
   order_number VARCHAR(100) NOT NULL,
   order_status_id INT NOT NULL,
-  cart_id INT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT orders_user_id_fkey FOREIGN KEY (user_id) REFERENCES users(id),
-  CONSTRAINT orders_order_status_id_fkey FOREIGN KEY (order_status_id) REFERENCES order_status(id),
-  CONSTRAINT orders_cart_id_fkey FOREIGN KEY (cart_id) REFERENCES carts(id)
+  CONSTRAINT orders_order_status_id_fkey FOREIGN KEY (order_status_id) REFERENCES order_status(id)
 );
 
 -- migrate:down
