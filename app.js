@@ -6,12 +6,14 @@ const morgan = require("morgan");
 
 const appDataSource = require("./api/models/dataSource");
 const route = require("./api/routes");
+const { errorHandler } = require("./api/utils/error");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("tiny"));
 app.use(route);
+app.use(errorHandler);
 
 appDataSource
   .initialize()
