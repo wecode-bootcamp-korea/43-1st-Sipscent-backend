@@ -13,7 +13,7 @@ const createUser = async (name, email, password, point) => {
 };
 
 const getUserByEmail = async (email) => {
-  const result = await appDataSource.query(
+  const [result] = await appDataSource.query(
     `SELECT
     id,
     name,
@@ -24,11 +24,11 @@ const getUserByEmail = async (email) => {
     WHERE email=?`,
     [email]
   );
-  return result[0];
+  return result;
 };
 
 const getUserById = async (id) => {
-  const result = await appDataSource.query(
+  const [result] = await appDataSource.query(
     `SELECT
     id,
     name,
@@ -39,7 +39,7 @@ const getUserById = async (id) => {
     WHERE id=?`,
     [id]
   );
-  return result[0];
+  return result;
 };
 
 module.exports = {
