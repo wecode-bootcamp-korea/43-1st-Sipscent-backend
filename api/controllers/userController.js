@@ -16,6 +16,14 @@ const signUp = catchAsync(async (req, res) => {
   return res.status(201).json({ message: "SUCCESS_SIGNUP" });
 });
 
+const logIn = catchAsync(async (req, res) => {
+  const { email, password } = req.body;
+
+  const accessToken = await userService.logIn(email, password);
+
+  return res.status(200).json({ accessToken });
+});
 module.exports = {
   signUp,
+  logIn,
 };
