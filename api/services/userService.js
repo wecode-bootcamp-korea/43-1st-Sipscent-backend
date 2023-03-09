@@ -1,10 +1,11 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 const { userDao } = require("../models");
 const {
   emailValidation,
   passwordValidation,
 } = require("../utils/validation-check.js");
-const jwt = require("jsonwebtoken");
 
 const makePassword = async (plainPassword) => {
   const saltRounds = 10;
