@@ -1,5 +1,9 @@
 const bcrypt = require("bcrypt");
 const { userDao } = require("../models");
+const {
+  emailValidation,
+  passwordValidation,
+} = require("../utils/validation-check.js");
 
 const makePassword = async (plainPassword) => {
   const saltRounds = 10;
@@ -9,30 +13,11 @@ const makePassword = async (plainPassword) => {
 };
 
 const signUp = async (name, email, password) => {
-  const emailRegex =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-  const passwordRegex = /^[0-9]{6,}$/;
-
-  if (!emailRegex.test(email)) {
-    const error = new Error("INVALID_EMAIL");
-    error.statusCode = 400;
-
-    throw error;
-  }
-
-  if (!passwordRegex.test(password)) {
-    const error = new Error("INVALID_PASSWORD");
-    error.statusCode = 400;
-
-    throw error;
-  }
+  await emailValidation(email);
+  await passwordValidation(password);
 
   const hashPassword = await makePassword(password);
-  console.log(hashPassword);
-
   const point = 100000;
-
-  console.log(userDao);
 
   return userDao.createUser(name, email, hashPassword, point);
 };
