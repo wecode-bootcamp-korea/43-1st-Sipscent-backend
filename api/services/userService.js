@@ -4,6 +4,7 @@ const {
   emailValidation,
   passwordValidation,
 } = require("../utils/validation-check.js");
+const jwt = require("jsonwebtoken");
 
 const makePassword = async (plainPassword) => {
   const saltRounds = 10;
@@ -22,6 +23,25 @@ const signUp = async (name, email, password) => {
   return userDao.createUser(name, email, hashPassword, point);
 };
 
+const logIn = async (email, password) => {
+  await emailValidation(email);
+  await passwordValidation(password);
+
+  const user = await userDao.getUserByEmail(email);
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) {
+    const error = new Error("WRONG_PASSWORD");
+    error.statusCode = 401;
+
+    throw error;
+  }
+
+  const accessToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+
+  return accessToken;
+};
 module.exports = {
   signUp,
+  logIn,
 };
