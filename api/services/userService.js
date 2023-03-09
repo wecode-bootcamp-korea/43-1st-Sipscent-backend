@@ -28,6 +28,14 @@ const logIn = async (email, password) => {
   await passwordValidation(password);
 
   const user = await userDao.getUserByEmail(email);
+
+  if (!user) {
+    const error = new Error("WRONG_EMAIL");
+    error.statusCode = 401;
+
+    throw error;
+  }
+
   const match = await bcrypt.compare(password, user.password);
 
   if (!match) {
