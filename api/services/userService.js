@@ -21,7 +21,7 @@ const signUp = async (name, email, password) => {
   }
 
   if (!passwordRegex.test(password)) {
-    const error = new Error("INVALID_EMAIL");
+    const error = new Error("INVALID_PASSWORD");
     error.statusCode = 400;
 
     throw error;
