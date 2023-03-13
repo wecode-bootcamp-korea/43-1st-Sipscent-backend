@@ -30,8 +30,8 @@ const deleteCart = catchAsync(async (req, res) => {
   const userId = req.user.id;
   const cartId = data["cart_id"];
 
-  await mainService.deleteCart(cartId, userId);
-  return res.status(204).json({ message: "SUCCESS_DELETE" });
+  const deleteItem = await mainService.deleteCart(cartId, userId);
+  return res.status(201).json({ message: deleteItem });
 });
 
 module.exports = {

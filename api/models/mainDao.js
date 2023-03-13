@@ -56,6 +56,23 @@ const getDeleteCart = async (cartId, userId) => {
     `,
     [cartId, userId]
   );
+  const deleteResult = await appDataSource.query(
+    `SELECT
+      c.id AS cartId,
+      u.id AS userId,
+      i.id AS itemId,
+      i.name AS itemName,
+      item_sizes.teabag_size AS itemSize,
+      c.quantity,
+      i.price * c.quantity AS totalPrice
+      FROM carts AS c
+      INNER JOIN users AS u ON u.id=c.user_id
+      INNER JOIN items AS i ON i.id=c.item_id
+      INNER JOIN item_sizes ON item_sizes.id=i.size_id
+      WHERE u.id=?`,
+    [userId]
+  );
+  return deleteResult;
 };
 module.exports = {
   getUserCart,
