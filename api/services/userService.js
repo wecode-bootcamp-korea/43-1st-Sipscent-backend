@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const { userDao } = require("../models");
+
 const {
   emailValidation,
   passwordValidation,
