@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3deaf5e0-4222-47ef-9b90-cfb1db9ede4c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/43-1st-Sipscent-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/43-1st-Sipscent-backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/itemController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/itemController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/dataSource.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/dataSource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/itemDao.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/itemDao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/userDao.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/userDao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/itemRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/itemRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/services/itemService.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/itemService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/validation-check.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/validation-check.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308061835_categories.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308061835_categories.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308061953_item_types.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308061953_item_types.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308062032_tasting_notes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308062032_tasting_notes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308062106_item_sizes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308062106_item_sizes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308062316_items.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308062316_items.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308064316_items_tasting_notes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308064316_items_tasting_notes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308064347_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308064347_users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308064417_carts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308064417_carts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308064437_order_status.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308064437_order_status.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308064503_orders.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308064503_orders.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20230308064525_order_items.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20230308064525_order_items.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pull_request_template.md" beforeDir="false" afterPath="$PROJECT_DIR$/pull_request_template.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MxSYJZ9zN3CpVgEsMn9Px1Bte5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "//wsl$/Ubuntu/root/wecode/43-1st-Sipscent-backend/db/migrations",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\root\wecode\43-1st-Sipscent-backend\db\migrations" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3deaf5e0-4222-47ef-9b90-cfb1db9ede4c" name="Changes" comment="" />
+      <created>1678707789675</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678707789675</updated>
+      <workItem from="1678707791179" duration="2908000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
