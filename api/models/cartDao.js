@@ -38,13 +38,13 @@ const getUserCart = async (userId) => {
   return result;
 };
 
-const getUpdateCart = async (itemId, quantity, userId) => {
+const getUpdateCart = async (cartId, quantity, userId) => {
   await appDataSource.query(
     `UPDATE carts
       SET quantity=?
-      WHERE item_id=? AND user_id=?
+      WHERE id=? AND user_id=?
     `,
-    [quantity, itemId, userId]
+    [quantity, cartId, userId]
   );
   return getUserCart(userId);
 };
