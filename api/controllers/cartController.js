@@ -1,10 +1,10 @@
 const { cartService } = require("../services");
 const { catchAsync } = require("../utils/error");
 
-const postCart = catchAsync(async (req, res) => {
+const createCart = catchAsync(async (req, res) => {
   const userId = req.user.id;
   const { itemId, quantity } = req.body;
-  await cartService.postCart(itemId, userId, quantity);
+  await cartService.createCart(itemId, userId, quantity);
 
   return res.status(201).json({ message: " SUCCESS_POSTCART" });
 });
@@ -35,7 +35,7 @@ const deleteCart = catchAsync(async (req, res) => {
 });
 
 module.exports = {
-  postCart,
+  createCart,
   getCarts,
   updateCart,
   deleteCart,
