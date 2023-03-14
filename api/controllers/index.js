@@ -1,7 +1,7 @@
 const userController = require("./userController");
-const mainController = require("./mainController");
+const cartController = require("./cartController");
 
 module.exports = {
   userController,
-  mainController,
+  cartController,
 };
