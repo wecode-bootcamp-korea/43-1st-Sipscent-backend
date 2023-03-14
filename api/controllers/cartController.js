@@ -20,8 +20,8 @@ const getCarts = catchAsync(async (req, res) => {
 const updateCart = catchAsync(async (req, res) => {
   const { quantity } = req.body;
   const userId = req.user.id;
-  const updateData = req.query
-  const cartId = updateData["cart_id"]
+  const updateData = req.query;
+  const cartId = updateData["cart_id"];
 
   const update = await cartService.updateCart(cartId, quantity, userId);
   return res.status(201).json({ update });
