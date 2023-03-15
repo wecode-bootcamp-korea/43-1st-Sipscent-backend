@@ -1,16 +1,17 @@
-const { orderDao } = require("../models");
+const {orderDao} = require("../models");
+const {generate, createOrderNumber} = require("../utils/generate");
 
-const orderList = async (userId) => {
-    return await orderDao.getOrder(userId);
+const getOrderList = async (userId) => {
+    return await orderDao.getOrderList(userId);
 }
 
-const payment = async (userId, userPhoneNumber, userAddress, orderNumber, orderStatusId) => {
-    return await orderDao.paymentSuccess(
-        userId, userPhoneNumber, userAddress, orderNumber, orderStatusId
+const createPayment = async (userId, userPhoneNumber, userAddress) => {
+    const orderNumber = await createOrderNumber();
+    return await orderDao.createPayment(
+        userId, userPhoneNumber, userAddress, orderNumber
     );
 };
 
-
 module.exports = {
-    orderList, payment
+    getOrderList, createPayment
 };

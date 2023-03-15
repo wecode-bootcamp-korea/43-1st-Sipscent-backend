@@ -8,11 +8,20 @@ const ORDERBY = Object.freeze({
     'id': 'ORDER BY id ASC'
 })
 
-const queryRunner = appDataSource.createQueryRunner()
+const ORDER_STATUS_ID = Object.freeze({
+    '결제완료': 1,
+    '상품준비중':2,
+    '배송대기중':3,
+    '출고완료':4,
+    '배송중':5,
+    '배송완료':6
+})
 
 
-const getOrder = async (userId) => {
-    try {
+
+
+const getOrderList = async (userId) => {
+
         return await appDataSource.query(`
             SELECT carts.id,
                    carts.item_id,
@@ -28,15 +37,12 @@ const getOrder = async (userId) => {
                      INNER JOIN users ON carts.user_id = users.id
             WHERE carts.user_id = ?
         `, [userId]);
-    } catch (err) {
-        const error = new Error('CANNOT_SEE_ORDER_LIST');
-        err.statusCode = 500;
-        throw error;
-    }
+
 };
 
 
-const paymentSuccess = async (userId, userPhoneNumber, userAddress, orderNumber, orderStatusId) => {
+const createPayment = async (userId, userPhoneNumber, userAddress, orderNumber) => {
+    const queryRunner = appDataSource.createQueryRunner()
     await queryRunner.connect();
     await queryRunner.startTransaction();
     try {
@@ -49,14 +55,14 @@ const paymentSuccess = async (userId, userPhoneNumber, userAddress, orderNumber,
                                                         INNER JOIN users ON users.id = carts.user_id
                                                WHERE carts.user_id = ?`, [userId])
         const itemPrices = [];
-        for (let x of carts) {
-            itemPrices.push(x["quantity"] * x["price"])
+        for (let cart of carts) {
+            itemPrices.push(cart["quantity"] * cart["price"])
         }
         const totalPrice = itemPrices.reduce((acc, cur) => acc + cur)
         await queryRunner.query(`
             INSERT INTO orders(user_id, user_phone_number, user_address, total_price, order_number, order_status_id)
             VALUES (?, ?, ?, ?, ?, ?);
-        `, [userId, userPhoneNumber, userAddress, totalPrice, orderNumber, orderStatusId]);
+        `, [userId, userPhoneNumber, userAddress, totalPrice, orderNumber, ORDER_STATUS_ID['결제완료']]);
         const [point] = await queryRunner.query(`
             SELECT point
             FROM users
@@ -72,12 +78,12 @@ const paymentSuccess = async (userId, userPhoneNumber, userAddress, orderNumber,
                                                   FROM orders
                                                   WHERE user_id = ?`, [userId])
         const orderId = orders["id"]
-        for (let x of carts) {
-            const itemId = x["item_id"]
-            const itemQuantity = x["quantity"]
+        for (let cart of carts) {
+            const itemId = cart["item_id"]
+            const itemQuantity = cart["quantity"]
             await queryRunner.query(`
                 INSERT INTO order_items(item_id, item_quantity, order_id, order_status_id)
-                VALUES (?, ?, ?, ?)`, [itemId, itemQuantity, orderId, orderStatusId])
+                VALUES (?, ?, ?, ?)`, [itemId, itemQuantity, orderId, ORDER_STATUS_ID['결제완료']])
         }
         await queryRunner.query(`
             DELETE
@@ -95,5 +101,5 @@ const paymentSuccess = async (userId, userPhoneNumber, userAddress, orderNumber,
 };
 
 module.exports = {
-    getOrder, paymentSuccess
+    getOrderList, createPayment
 };
