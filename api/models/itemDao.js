@@ -47,7 +47,7 @@ const getTeabags = async (sorting = 'id', tasting_notes, price, category) => {
                        categories.category_name,
                        item_types.type_name,
                        items.image_url,
-                       items.price,
+                       ROUND(items.price) as price,
                        items.description,
                        (SELECT JSON_ARRAYAGG(tasting_notes.note_name)
                         FROM items_tasting_notes
@@ -110,7 +110,7 @@ const getTeacups = async (sorting = 'id', price = null, category) => {
                        item_types.type_name,
                        categories.category_name,
                        items.image_url,
-                       items.price,
+                       ROUND(items.price) as price,
                        items.description
                 FROM items
                          INNER JOIN item_types ON items.item_type_id = item_types.id
