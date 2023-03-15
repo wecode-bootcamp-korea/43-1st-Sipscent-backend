@@ -140,7 +140,7 @@ const getTeacups = async (sorting = "id", price = null, category) => {
 };
 
 const getDetailItem = async (itemId) => {
-  const [result] = await appDataSource.query(
+  return appDataSource.query(
     `SELECT
     i.id,
     i.name,
@@ -161,7 +161,6 @@ const getDetailItem = async (itemId) => {
     WHERE i.id=?`,
     [itemId]
   );
-  return result;
 };
 module.exports = {
   getTeabags,

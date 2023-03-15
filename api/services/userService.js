@@ -19,7 +19,7 @@ const signUp = async (name, email, password) => {
   await passwordValidation(password);
 
   const hashPassword = await makePassword(password);
-  const point = 100000;
+  const point = 900000;
 
   return userDao.createUser(name, email, hashPassword, point);
 };
