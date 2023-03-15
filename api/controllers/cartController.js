@@ -13,7 +13,6 @@ const getCarts = catchAsync(async (req, res) => {
   const userId = req.user.id;
 
   const carts = await cartService.getCarts(userId);
-
   return res.status(200).json({ carts });
 });
 
