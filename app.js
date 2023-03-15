@@ -14,6 +14,11 @@ app.use(cors());
 app.use(morgan("tiny"));
 app.use(route);
 
+app.get("/ping", (req, res) => {
+  res.status(200).json({ message: "pong" });
+});
+
+
 app.all("*", (req, res, next) => {
   const error = new Error(`Can't find ${req.originalUrl} on this server!`);
   error.statusCode = 404;
@@ -32,9 +37,6 @@ appDataSource
     console.error("Error during Data Source initialization", error);
   });
 
-app.get("/ping", (req, res) => {
-  res.status(200).json({ message: "pong" });
-});
 
 const PORT = process.env.PORT;
 
