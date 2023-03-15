@@ -18,7 +18,7 @@ const CATEGORY_NAME = Object.freeze({
     'citrus': 'Citrus'
 })
 
-const seeTeabags = async (order = 'id', tasting_notes = null, price = null, category) => {
+const getTeabags = async (order = 'id', tasting_notes = null, price = null, category) => {
     const orderClause = ORDERBY[order]
     const itemTypeName = TYPE_NAME['teabags']
     const categoryName = CATEGORY_NAME[category]
@@ -85,7 +85,7 @@ const seeTeabags = async (order = 'id', tasting_notes = null, price = null, cate
 };
 
 
-const seeTeacups = async (order = 'id', price = null, category) => {
+const getTeacups = async (order = 'id', price = null, category) => {
     const orderClause = ORDERBY[order]
     const itemTypeName = TYPE_NAME['teacups']
     const categoryName = CATEGORY_NAME[category]
@@ -144,5 +144,5 @@ const seeTeacups = async (order = 'id', price = null, category) => {
 };
 
 module.exports = {
-    seeTeabags, seeTeacups
+    getTeabags, getTeacups
 };
