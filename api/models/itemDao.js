@@ -121,7 +121,7 @@ const getTeacups = async (sorting = "id", price = null, category) => {
                 FROM items
                          INNER JOIN item_types ON items.item_type_id = item_types.id
                          INNER JOIN categories ON items.category_id = categories.id
-                WHERE item_type_id = ${TYPE_ID["teabags"]}
+                WHERE item_type_id = ${TYPE_ID["teacups"]}
                   AND category_id = ${CATEGORY_ID[category]}
                     ${priceClause}
                 GROUP BY id ${orderClause}
@@ -133,7 +133,7 @@ const getTeacups = async (sorting = "id", price = null, category) => {
         FROM category_description
                  INNER JOIN item_types ON category_description.item_type_id = item_types.id
                  INNER JOIN categories ON categories.id = category_description.categories_id
-        WHERE item_type_id = ${TYPE_ID["teabags"]}
+        WHERE item_type_id = ${TYPE_ID["teacups"]}
           AND categories_id = ${CATEGORY_ID[category]}`);
 
   return [itemData, categoryData];
