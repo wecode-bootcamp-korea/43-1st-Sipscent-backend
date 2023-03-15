@@ -15,7 +15,7 @@ app.use(morgan("tiny"));
 app.use(route);
 
 app.all("*", (req, res, next) => {
-  const error = new Error(`Can't find ${req.originalUrl} on this erver!`);
+  const error = new Error(`Can't find ${req.originalUrl} on this server!`);
   error.statusCode = 404;
 
   next(error);
