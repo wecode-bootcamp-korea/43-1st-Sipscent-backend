@@ -1,5 +1,5 @@
 const {orderDao} = require("../models");
-const {generate, createOrderNumber} = require("../utils/generate");
+const {createOrderNumber} = require("../utils/generate");
 
 const getOrderList = async (userId) => {
     return await orderDao.getOrderList(userId);

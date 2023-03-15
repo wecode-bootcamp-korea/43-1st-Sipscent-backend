@@ -1,13 +1,6 @@
 const appDataSource = require("./dataSource");
 const {query} = require("express");
 
-const ORDERBY = Object.freeze({
-    'price': 'ORDER BY price ASC',
-    '-price': 'ORDER BY price DESC',
-    'name': 'ORDER BY name ASC',
-    'id': 'ORDER BY id ASC'
-})
-
 const ORDER_STATUS_ID = Object.freeze({
     '결제완료': 1,
     '상품준비중':2,
@@ -16,9 +9,6 @@ const ORDER_STATUS_ID = Object.freeze({
     '배송중':5,
     '배송완료':6
 })
-
-
-
 
 const getOrderList = async (userId) => {
 
@@ -37,7 +27,6 @@ const getOrderList = async (userId) => {
                      INNER JOIN users ON carts.user_id = users.id
             WHERE carts.user_id = ?
         `, [userId]);
-
 };
 
 
