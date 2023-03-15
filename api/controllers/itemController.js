@@ -11,8 +11,8 @@ const teabags = catchAsync(async (req, res) => {
 
 const teacups = catchAsync(async (req, res) => {
     const {category} = req.params;
-    let {order, price} = req.query;
-    const items = await itemService.teacups(order, price, category);
+    let {sorting, price} = req.query;
+    const items = await itemService.teacups(sorting, price, category);
     res.status(200).json({items})
 })
 

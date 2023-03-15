@@ -8,14 +8,14 @@ const ORDERBY = Object.freeze({
 })
 
 const TYPE_ID = Object.freeze({
-    'teabags': '1',
-    'teacups': '2'
+    'teabags': 1,
+    'teacups': 2
 })
 
 const CATEGORY_ID = Object.freeze({
-    'floral': '1',
-    'herbal': '2',
-    'citrus': '3'
+    'floral': 1,
+    'herbal': 2,
+    'citrus': 3
 })
 
 
@@ -60,8 +60,8 @@ const getTeabags = async (sorting = 'id', tasting_notes, price, category) => {
                          INNER JOIN item_sizes ON items.size_id = item_sizes.id
                          INNER JOIN item_types ON items.item_type_id = item_types.id
                          INNER JOIN categories ON items.category_id = categories.id
-                WHERE item_type_id = "${TYPE_ID["teabags"]}"
-                  AND category_id = "${CATEGORY_ID[category]}"
+                WHERE item_type_id = ${TYPE_ID["teabags"]}
+                  AND category_id = ${CATEGORY_ID[category]}
                     ${tastingNotesClause} ${priceClause}
                 GROUP BY id ${orderClause}
         `
@@ -73,8 +73,8 @@ const getTeabags = async (sorting = 'id', tasting_notes, price, category) => {
         FROM category_description
         INNER JOIN item_types ON category_description.item_type_id = item_types.id
         INNER JOIN categories ON categories.id = category_description.categories_id
-        WHERE item_type_id = "${TYPE_ID["teabags"]}"
-          AND categories_id = "${CATEGORY_ID[category]}"`)
+        WHERE item_type_id = ${TYPE_ID["teabags"]}
+          AND categories_id = ${CATEGORY_ID[category]}`)
 
     return [itemData, categoryData];
 };
@@ -89,14 +89,10 @@ const getTeacups = async (sorting = 'id', price = null, category) => {
                 priceClause = `AND price < ${price}`
                 break;
             case "30000~40000" :
-                const priceRange1 = price.substring(0, 5)
-                const priceRange2 = price.substring(6, 11)
-                priceClause = `AND price >= ${priceRange1} AND price < ${priceRange2}`
+                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
                 break;
             case "40000~50000" :
-                const priceRange3 = price.substring(0, 5)
-                const priceRange4 = price.substring(6, 11)
-                priceClause = `AND price >= ${priceRange3} AND price < ${priceRange4}`
+                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
                 break;
             case "50000" :
                 priceClause = `AND price > ${price}`
@@ -115,8 +111,8 @@ const getTeacups = async (sorting = 'id', price = null, category) => {
                 FROM items
                          INNER JOIN item_types ON items.item_type_id = item_types.id
                          INNER JOIN categories ON items.category_id = categories.id
-                WHERE item_type_id = "${TYPE_ID["teabags"]}"
-                  AND category_id = "${CATEGORY_ID[category]}"
+                WHERE item_type_id = ${TYPE_ID["teabags"]}
+                  AND category_id = ${CATEGORY_ID[category]}
                     ${priceClause}
                 GROUP BY id ${orderClause}
         `
@@ -129,8 +125,8 @@ const getTeacups = async (sorting = 'id', price = null, category) => {
         FROM category_description
                  INNER JOIN item_types ON category_description.item_type_id = item_types.id
                  INNER JOIN categories ON categories.id = category_description.categories_id
-        WHERE item_type_id = "${TYPE_ID["teabags"]}"
-          AND categories_id = "${CATEGORY_ID[category]}"`)
+        WHERE item_type_id = ${TYPE_ID["teabags"]}
+          AND categories_id = ${CATEGORY_ID[category]}`)
 
     return [itemData, categoryData];
 };
