@@ -1,47 +1,53 @@
 const appDataSource = require("./dataSource");
 
 const ORDERBY = Object.freeze({
-    'price': 'ORDER BY price ASC',
-    '-price': 'ORDER BY price DESC',
-    'name': 'ORDER BY name ASC',
-    'id': 'ORDER BY id ASC'
-})
+  price: "ORDER BY price ASC",
+  "-price": "ORDER BY price DESC",
+  name: "ORDER BY name ASC",
+  id: "ORDER BY id ASC",
+});
 
 const TYPE_ID = Object.freeze({
-    'teabags': 1,
-    'teacups': 2
-})
+  teabags: 1,
+  teacups: 2,
+});
 
 const CATEGORY_ID = Object.freeze({
-    'floral': 1,
-    'herbal': 2,
-    'citrus': 3
-})
+  floral: 1,
+  herbal: 2,
+  citrus: 3,
+});
 
-
-const getTeabags = async (sorting = 'id', tasting_notes, price, category) => {
-    const orderClause = ORDERBY[sorting]
-    let tastingNotesClause = ""
-    if (tasting_notes) tastingNotesClause = `AND tasting_notes.note_name IN (${tasting_notes})`
-    let priceClause = ""
-    if (price) {
-        switch (price) {
-            case "30000" :
-                priceClause = `AND price < ${price}`
-                break;
-            case "30000~40000" :
-                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
-                break;
-            case "40000~50000" :
-                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
-                break;
-            case "50000" :
-                priceClause = `AND price > ${price}`
-                break;
-        }
+const getTeabags = async (sorting = "id", tasting_notes, price, category) => {
+  const orderClause = ORDERBY[sorting];
+  let tastingNotesClause = "";
+  if (tasting_notes)
+    tastingNotesClause = `AND tasting_notes.note_name IN (${tasting_notes})`;
+  let priceClause = "";
+  if (price) {
+    switch (price) {
+      case "30000":
+        priceClause = `AND price < ${price}`;
+        break;
+      case "30000~40000":
+        priceClause = `AND price >= ${price.substring(
+          0,
+          5
+        )} AND price < ${price.substring(6, 11)}`;
+        break;
+      case "40000~50000":
+        priceClause = `AND price >= ${price.substring(
+          0,
+          5
+        )} AND price < ${price.substring(6, 11)}`;
+        break;
+      case "50000":
+        priceClause = `AND price > ${price}`;
+        break;
     }
+  }
 
-    const itemData = await appDataSource.query(`
+  const itemData = await appDataSource.query(`
                 SELECT items.id,
                        items.name,
                        categories.category_name,
@@ -64,43 +70,47 @@ const getTeabags = async (sorting = 'id', tasting_notes, price, category) => {
                   AND category_id = ${CATEGORY_ID[category]}
                     ${tastingNotesClause} ${priceClause}
                 GROUP BY id ${orderClause}
-        `
-    );
+        `);
 
-    const categoryData = await appDataSource.query(`
+  const categoryData = await appDataSource.query(`
         SELECT category_description.category_title,
                category_description.category_description
         FROM category_description
         INNER JOIN item_types ON category_description.item_type_id = item_types.id
         INNER JOIN categories ON categories.id = category_description.categories_id
         WHERE item_type_id = ${TYPE_ID["teabags"]}
-          AND categories_id = ${CATEGORY_ID[category]}`)
+          AND categories_id = ${CATEGORY_ID[category]}`);
 
-    return [itemData, categoryData];
+  return [itemData, categoryData];
 };
 
-
-const getTeacups = async (sorting = 'id', price = null, category) => {
-    const orderClause = ORDERBY[sorting]
-    let priceClause = ""
-    if (price) {
-        switch (price) {
-            case "30000" :
-                priceClause = `AND price < ${price}`
-                break;
-            case "30000~40000" :
-                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
-                break;
-            case "40000~50000" :
-                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
-                break;
-            case "50000" :
-                priceClause = `AND price > ${price}`
-                break;
-        }
+const getTeacups = async (sorting = "id", price = null, category) => {
+  const orderClause = ORDERBY[sorting];
+  let priceClause = "";
+  if (price) {
+    switch (price) {
+      case "30000":
+        priceClause = `AND price < ${price}`;
+        break;
+      case "30000~40000":
+        priceClause = `AND price >= ${price.substring(
+          0,
+          5
+        )} AND price < ${price.substring(6, 11)}`;
+        break;
+      case "40000~50000":
+        priceClause = `AND price >= ${price.substring(
+          0,
+          5
+        )} AND price < ${price.substring(6, 11)}`;
+        break;
+      case "50000":
+        priceClause = `AND price > ${price}`;
+        break;
     }
+  }
 
-    const itemData = await appDataSource.query(`
+  const itemData = await appDataSource.query(`
                 SELECT items.id,
                        items.name,
                        item_types.type_name,
@@ -115,22 +125,45 @@ const getTeacups = async (sorting = 'id', price = null, category) => {
                   AND category_id = ${CATEGORY_ID[category]}
                     ${priceClause}
                 GROUP BY id ${orderClause}
-        `
-    );
+        `);
 
-
-    const categoryData = await appDataSource.query(`
+  const categoryData = await appDataSource.query(`
         SELECT category_description.category_title,
                category_description.category_description
         FROM category_description
                  INNER JOIN item_types ON category_description.item_type_id = item_types.id
                  INNER JOIN categories ON categories.id = category_description.categories_id
         WHERE item_type_id = ${TYPE_ID["teabags"]}
-          AND categories_id = ${CATEGORY_ID[category]}`)
+          AND categories_id = ${CATEGORY_ID[category]}`);
 
-    return [itemData, categoryData];
+  return [itemData, categoryData];
 };
 
+const getDetailItem = async (itemId) => {
+  return appDataSource.query(
+    `SELECT
+    i.id,
+    i.name,
+    categories.category_name AS category_name,
+    i.description AS description,
+    item_types.type_name AS type_name,
+    i.image_url,
+    ROUND(i.price) AS price,
+    item_sizes.teabag_size AS teabag_size,
+    JSON_ARRAYAGG(
+    tasting_notes.note_name) AS tasting_notes
+    FROM items AS i
+    INNER JOIN item_types ON  i.item_type_id=item_types.id
+    INNER JOIN categories ON i.category_id=categories.id
+    LEFT JOIN item_sizes ON i.size_id=item_sizes.id
+    LEFT JOIN items_tasting_notes ON i.id=items_tasting_notes.item_id
+    LEFT JOIN tasting_notes ON items_tasting_notes.tasting_note_id=tasting_notes.id
+    WHERE i.id=?`,
+    [itemId]
+  );
+};
 module.exports = {
-    getTeabags, getTeacups
+  getTeabags,
+  getTeacups,
+  getDetailItem,
 };

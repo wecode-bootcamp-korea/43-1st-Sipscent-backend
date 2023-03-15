@@ -34,7 +34,6 @@ const getUserCart = async (userId) => {
     `,
     [userId]
   );
-
   return result;
 };
 
