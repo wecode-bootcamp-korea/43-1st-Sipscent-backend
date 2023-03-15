@@ -2,11 +2,10 @@ const {itemService} = require("../services");
 const {catchAsync} = require("../utils/error");
 
 const teabags = catchAsync(async (req, res) => {
-    const userId = req.user.id
     const {category} = req.params;
-    let {order, tasting_notes} = req.query
-    let price = req.query.price
-    const items = await itemService.teabags(order, tasting_notes, price, category)
+    let {sorting} = req.query
+    const {tasting_notes, price} = req.query
+    const items = await itemService.teabags(sorting, tasting_notes, price, category)
     res.status(200).json({items})
 })
 

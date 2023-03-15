@@ -7,21 +7,20 @@ const ORDERBY = Object.freeze({
     'id': 'ORDER BY id ASC'
 })
 
-const TYPE_NAME = Object.freeze({
-    'teabags': '티백',
-    'teacups': '찻잔'
+const TYPE_ID = Object.freeze({
+    'teabags': '1',
+    'teacups': '2'
 })
 
-const CATEGORY_NAME = Object.freeze({
-    'floral': 'Floral',
-    'herbal': 'Herbal',
-    'citrus': 'Citrus'
+const CATEGORY_ID = Object.freeze({
+    'floral': '1',
+    'herbal': '2',
+    'citrus': '3'
 })
 
-const getTeabags = async (order = 'id', tasting_notes = null, price = null, category) => {
-    const orderClause = ORDERBY[order]
-    const itemTypeName = TYPE_NAME['teabags']
-    const categoryName = CATEGORY_NAME[category]
+
+const getTeabags = async (sorting = 'id', tasting_notes, price, category) => {
+    const orderClause = ORDERBY[sorting]
     let tastingNotesClause = ""
     if (tasting_notes) tastingNotesClause = `AND tasting_notes.note_name IN (${tasting_notes})`
     let priceClause = ""
@@ -31,14 +30,10 @@ const getTeabags = async (order = 'id', tasting_notes = null, price = null, cate
                 priceClause = `AND price < ${price}`
                 break;
             case "30000~40000" :
-                const priceRange1 = price.substring(0, 5)
-                const priceRange2 = price.substring(6, 11)
-                priceClause = `AND price >= ${priceRange1} AND price < ${priceRange2}`
+                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
                 break;
             case "40000~50000" :
-                const priceRange3 = price.substring(0, 5)
-                const priceRange4 = price.substring(6, 11)
-                priceClause = `AND price >= ${priceRange3} AND price < ${priceRange4}`
+                priceClause = `AND price >= ${price.substring(0, 5)} AND price < ${price.substring(6, 11)}`
                 break;
             case "50000" :
                 priceClause = `AND price > ${price}`
@@ -65,8 +60,8 @@ const getTeabags = async (order = 'id', tasting_notes = null, price = null, cate
                          INNER JOIN item_sizes ON items.size_id = item_sizes.id
                          INNER JOIN item_types ON items.item_type_id = item_types.id
                          INNER JOIN categories ON items.category_id = categories.id
-                WHERE item_types.type_name = "${itemTypeName}"
-                  AND categories.category_name = "${categoryName}"
+                WHERE item_type_id = "${TYPE_ID["teabags"]}"
+                  AND category_id = "${CATEGORY_ID[category]}"
                     ${tastingNotesClause} ${priceClause}
                 GROUP BY id ${orderClause}
         `
@@ -78,19 +73,16 @@ const getTeabags = async (order = 'id', tasting_notes = null, price = null, cate
         FROM category_description
         INNER JOIN item_types ON category_description.item_type_id = item_types.id
         INNER JOIN categories ON categories.id = category_description.categories_id
-        WHERE item_types.type_name = "${itemTypeName}"
-          AND categories.category_name = "${categoryName}"`)
+        WHERE item_type_id = "${TYPE_ID["teabags"]}"
+          AND categories_id = "${CATEGORY_ID[category]}"`)
 
     return [itemData, categoryData];
 };
 
 
-const getTeacups = async (order = 'id', price = null, category) => {
-    const orderClause = ORDERBY[order]
-    const itemTypeName = TYPE_NAME['teacups']
-    const categoryName = CATEGORY_NAME[category]
+const getTeacups = async (sorting = 'id', price = null, category) => {
+    const orderClause = ORDERBY[sorting]
     let priceClause = ""
-    console.log(order, price)
     if (price) {
         switch (price) {
             case "30000" :
@@ -123,8 +115,8 @@ const getTeacups = async (order = 'id', price = null, category) => {
                 FROM items
                          INNER JOIN item_types ON items.item_type_id = item_types.id
                          INNER JOIN categories ON items.category_id = categories.id
-                WHERE item_types.type_name = "${itemTypeName}"
-                  AND categories.category_name = "${categoryName}"
+                WHERE item_type_id = "${TYPE_ID["teabags"]}"
+                  AND category_id = "${CATEGORY_ID[category]}"
                     ${priceClause}
                 GROUP BY id ${orderClause}
         `
@@ -137,8 +129,8 @@ const getTeacups = async (order = 'id', price = null, category) => {
         FROM category_description
                  INNER JOIN item_types ON category_description.item_type_id = item_types.id
                  INNER JOIN categories ON categories.id = category_description.categories_id
-        WHERE item_types.type_name = "${itemTypeName}"
-          AND categories.category_name = "${categoryName}"`)
+        WHERE item_type_id = "${TYPE_ID["teabags"]}"
+          AND categories_id = "${CATEGORY_ID[category]}"`)
 
     return [itemData, categoryData];
 };

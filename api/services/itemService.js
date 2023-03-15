@@ -1,7 +1,7 @@
 const { itemDao } = require("../models");
 
-const teabags = async (order, tasting_notes, price, category) => {
-    return await itemDao.getTeabags(order, tasting_notes, price, category);
+const teabags = async (sorting, tasting_notes, price, category) => {
+    return await itemDao.getTeabags(sorting, tasting_notes, price, category);
 }
 
 const teacups = async (order, price, category) => {
