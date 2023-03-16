@@ -24,6 +24,10 @@ const signUp = async (name, email, password) => {
   return userDao.createUser(name, email, hashPassword, point);
 };
 
+const checkEmail = async (email) => {
+  return userDao.checkRegisterdEmail(email);
+};
+
 const logIn = async (email, password) => {
   await emailValidation(email);
   await passwordValidation(password);
@@ -50,7 +54,9 @@ const logIn = async (email, password) => {
 
   return accessToken;
 };
+
 module.exports = {
   signUp,
+  checkEmail,
   logIn,
 };
