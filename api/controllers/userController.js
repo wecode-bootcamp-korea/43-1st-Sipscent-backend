@@ -27,7 +27,15 @@ const checkEmail = catchAsync(async (req, res) => {
     return res.status(200).json({ message: "가입 가능한 이메일입니다." });
   }
 });
+
+const logIn = catchAsync(async (req, res) => {
+  const { email, password } = req.body;
+
+  const accessToken = await userService.logIn(email, password);
+  return res.status(200).json({ accessToken });
+});
 module.exports = {
   signUp,
   checkEmail,
+  logIn,
 };

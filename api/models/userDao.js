@@ -27,8 +27,39 @@ const checkRegisterdEmail = async (email) => {
 
   return !!parseInt(result.registerd);
 };
+const getUserByEmail = async (email) => {
+  const [result] = await appDataSource.query(
+    `SELECT
+    id,
+    name,
+    email,
+    password,
+    point
+    FROM users
+    WHERE email=?`,
+    [email]
+  );
+  return result;
+};
+
+const getUserById = async (id) => {
+  const [result] = await appDataSource.query(
+    `SELECT
+    id,
+    name,
+    email,
+    password,
+    point
+    FROM users
+    WHERE id=?`,
+    [id]
+  );
+  return result;
+};
 
 module.exports = {
   createUser,
   checkRegisterdEmail,
+  getUserByEmail,
+  getUserById,
 };
