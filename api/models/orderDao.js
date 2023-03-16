@@ -14,7 +14,6 @@ const getOrderList = async (userId) => {
     const [userPoint] = await appDataSource.query(`SELECT ROUND(point) as point
                                                    FROM users
                                                    WHERE id = ${userId}`)
-    console.log(userPoint)
     const [totalPrice] = await appDataSource.query(`SELECT (SELECT ROUND(SUM(items.price * carts.quantity))
                                                             FROM carts
                                                                      INNER JOIN items ON items.id = carts.item_id
