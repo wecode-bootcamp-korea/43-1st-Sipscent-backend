@@ -2,7 +2,8 @@ const { cartService } = require("../services");
 const { catchAsync } = require("../utils/error");
 
 const createCart = catchAsync(async (req, res) => {
-  const userId = req.user.id;
+  // const userId = req.user.id;
+  const userId = 9;
   const { itemId, quantity } = req.body;
   const result = await cartService.createCart(itemId, userId, quantity);
   if (result === 1) {
@@ -15,16 +16,16 @@ const createCart = catchAsync(async (req, res) => {
 });
 
 const getCarts = catchAsync(async (req, res) => {
-  const userId = req.user.id;
-
+  // const userId = req.user.id;
+const userId = 9
   const carts = await cartService.getCarts(userId);
 
   return res.status(200).json({ carts });
 });
 
 const updateCart = catchAsync(async (req, res) => {
-  const userId = req.user.id;
-
+  // const userId = req.user.id;
+const userId = 9
   const { cartId, quantity } = req.body;
   // const userId = req.user.id;
 
@@ -37,7 +38,8 @@ const updateCart = catchAsync(async (req, res) => {
 });
 
 const deleteCart = catchAsync(async (req, res) => {
-  const userId = req.user.id;
+  // const userId = req.user.id;
+const userId = 9
   const data = req.query;
   const cartId = data["cart_id"];
 

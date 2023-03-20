@@ -3,7 +3,8 @@ const {catchAsync} = require("../utils/error");
 
 const getOrderList = catchAsync(async (req, res) => {
 
-    const userId = req.user.id
+    // const userId = req.user.id
+const userId = 9
     const getOrderList = await orderService.getOrderList(userId);
     if (getOrderList) {
         return res.status(201).json({getOrderList})
@@ -15,7 +16,8 @@ const getOrderList = catchAsync(async (req, res) => {
 
 const createPayment = catchAsync(async (req, res) => {
 
-    const userId = req.user.id
+    // const userId = req.user.id
+    const userId = 9
     const {userPhoneNumber, userAddress} = req.body;
     if (!userId || !userPhoneNumber || !userAddress) throw new Error('KEY_ERROR')
     await orderService.createPayment(userId, userPhoneNumber, userAddress);
@@ -26,7 +28,8 @@ const createPayment = catchAsync(async (req, res) => {
 
 const getOrderStatus = catchAsync(async (req, res) => {
 
-        const userId = req.user.id;
+        // const userId = req.user.id;
+    const userId = 9
         const orderStatus = await orderService.getOrderStatus(userId);
         return res.status(201).json({orderStatus})
     }

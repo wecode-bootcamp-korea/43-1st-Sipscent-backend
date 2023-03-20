@@ -1,21 +1,21 @@
 const appDataSource = require("./dataSource");
 
 const ORDERBY = Object.freeze({
-  price: "ORDER BY price ASC",
-  "-price": "ORDER BY price DESC",
-  name: "ORDER BY name ASC",
-  id: "ORDER BY id ASC",
+  'price': "ORDER BY price ASC",
+  '-price': "ORDER BY price DESC",
+  'name': "ORDER BY name ASC",
+  'id': "ORDER BY id ASC",
 });
 
 const TYPE_ID = Object.freeze({
-  teabags: 1,
-  teacups: 2,
+  'teabags': 1,
+  'teacups': 2,
 });
 
 const CATEGORY_ID = Object.freeze({
-  floral: 1,
-  herbal: 2,
-  citrus: 3,
+  'floral': 1,
+  'herbal': 2,
+  'citrus': 3,
 });
 
 const getTeabags = async (sorting = "id", tasting_notes, price, category) => {
