@@ -9,7 +9,7 @@ const route = require("./api/routes");
 const { errorHandler } = require("./api/utils/error");
 
 const app = express();
-app.use(express.json());
+app.use(express.json());//미들웨어들은 함수 -> req,res가 미들웨어를 통과하면서 작동을 한다.
 app.use(cors());
 app.use(morgan("tiny"));
 app.use(route);
@@ -19,7 +19,7 @@ app.get("/ping", (req, res) => {
 });
 
 app.all("*", (req, res, next) => {
-  const error = new Error(`Can't find ${req.originalUrl} on this erver!`);
+  const error = new Error(`Can't find ${req.originalUrl} on this server!`);
   error.statusCode = 404;
 
   next(error);

@@ -23,9 +23,9 @@ const checkEmail = catchAsync(async (req, res) => {
 
   if (checkedEmail) {
     return res.status(200).json({ message: "이미 가입된 이메일입니다." });
-  } else {
-    return res.status(200).json({ message: "가입 가능한 이메일입니다." });
   }
+
+  return res.status(200).json({ message: "가입 가능한 이메일입니다." });
 });
 
 const logIn = catchAsync(async (req, res) => {
