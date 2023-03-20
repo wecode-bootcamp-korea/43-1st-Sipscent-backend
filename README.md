@@ -1,5 +1,5 @@
 # 43기 1차 프로젝트 : Sipscent 팀
-<img src="https://user-images.githubusercontent.com/124610396/226172329-5759aaa3-8ae7-49bf-84ca-915a9710cd15.png" />
+<img src="https://user-images.githubusercontent.com/124610396/226172329-5759aaa3-8ae7-49bf-84ca-915a9710cd15.png" width="300" height="300"/>
 
 ## 구현 웹페이지
 - 이솝 홈페이지를 바탕으로 teabag을 판매하는 사이트 구현
@@ -57,15 +57,15 @@
 | 컴포넌트                 | 기능영상                                                                                                                         | 담당 개발자                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | 메인 페이지              | <img src="https://user-images.githubusercontent.com/124610396/226342086-f4f02e67-6a9b-4a10-92bf-3e27e741e277.gif" width="520" height="320" /> | - 프론트엔드 : 유정인 <br> - 백엔드 :        |
-| 회원가입 페이지                 | <img src="https://user-images.githubusercontent.com/124610396/226342683-ec80913e-87b9-4db8-891a-50ec66126421.gif" width="550" height="320"/> | - 프론트엔드 : 김민경 <br> - 백엔드 : 임수정       |
-| 로그인 페이지                 | <img src="https://user-images.githubusercontent.com/124610396/226342435-c2045db9-9faa-41f2-888a-85ceac8a31b1.gif" width="550" height="320"/> | - 프론트엔드 : 김민경 <br> - 백엔드 : 임수정       |
-| 상품리스트 페이지                  | <img src="https://user-images.githubusercontent.com/124610396/226342770-98060ce7-f760-421f-8733-1b47f1aae31d.gif" width="550" height="320"/> | - 프론트엔드 : 권유정 <br> - 백엔드 : 김수현       |
-|필터                | <img src="https://user-images.githubusercontent.com/124610396/226343529-b35c2045-1cf1-44a0-9567-5fa35f1630e4.gif" width="550" height="320"/> | - 프론트엔드 : 권유정,유정인 <br> - 백엔드 : 김수현      |
-|정렬                | <img src="https://user-images.githubusercontent.com/124610396/226342966-9eaa09a6-e3c4-44a4-98b0-d9736825d5ab.gif" width="550" height="320"/> | - 프론트엔드 : 권유정,유정인 <br> - 백엔드 : 김수현       |
-| 상품상세 페이지 & 장바구니         | <img src="https://user-images.githubusercontent.com/124610396/226342836-7aebada0-737b-406c-9e0c-e8ac814a61e8.gif" width="550" height="320"/> | - 프론트엔드 : 권유정 <br> - 백엔드 : 임수정        |
-| 주문 & 결제페이지      | <img src="https://user-images.githubusercontent.com/124610396/226344395-83dee21f-259e-4be6-9ed7-3c3b1aab916b.gif" width="550" height="320"/>| - 프론트엔드 : 유정인 <br> - 백엔드 : 김수현        |
-| 결제완료페이지     | <img src="https://user-images.githubusercontent.com/124610396/226344520-7456e9d9-6447-49fe-a540-c3558bd3cd8c.gif" width="550" height="320"/> | - 프론트엔드 : 유정인 <br> - 백엔드 : 김수현        |
-| Nav & Footer             | <img src = "https://velog.velcdn.com/images/trtw9889/post/96461d1a-4f67-4c5c-a0ed-c21fa990f1b7/image.png" width="550" height="320"> | -프론트엔드 : 권유정 <br> -백엔드 :            |
+| 회원가입 페이지                 | <img src="https://user-images.githubusercontent.com/124610396/226342683-ec80913e-87b9-4db8-891a-50ec66126421.gif" width="520" height="320"/> | - 프론트엔드 : 김민경 <br> - 백엔드 : 임수정       |
+| 로그인 페이지                 | <img src="https://user-images.githubusercontent.com/124610396/226342435-c2045db9-9faa-41f2-888a-85ceac8a31b1.gif" width="520" height="320"/> | - 프론트엔드 : 김민경 <br> - 백엔드 : 임수정       |
+| 상품리스트 페이지                  | <img src="https://user-images.githubusercontent.com/124610396/226342770-98060ce7-f760-421f-8733-1b47f1aae31d.gif" width="520" height="320"/> | - 프론트엔드 : 권유정 <br> - 백엔드 : 김수현       |
+|필터                | <img src="https://user-images.githubusercontent.com/124610396/226343529-b35c2045-1cf1-44a0-9567-5fa35f1630e4.gif" width="520" height="320"/> | - 프론트엔드 : 권유정,유정인 <br> - 백엔드 : 김수현      |
+|정렬                | <img src="https://user-images.githubusercontent.com/124610396/226342966-9eaa09a6-e3c4-44a4-98b0-d9736825d5ab.gif" width="520" height="320"/> | - 프론트엔드 : 권유정,유정인 <br> - 백엔드 : 김수현       |
+| 상품상세 페이지 & 장바구니         | <img src="https://user-images.githubusercontent.com/124610396/226342836-7aebada0-737b-406c-9e0c-e8ac814a61e8.gif" width="520" height="320"/> | - 프론트엔드 : 권유정 <br> - 백엔드 : 임수정        |
+| 주문 & 결제페이지      | <img src="https://user-images.githubusercontent.com/124610396/226344395-83dee21f-259e-4be6-9ed7-3c3b1aab916b.gif" width="520" height="320"/>| - 프론트엔드 : 유정인 <br> - 백엔드 : 김수현        |
+| 결제완료페이지     | <img src="https://user-images.githubusercontent.com/124610396/226344520-7456e9d9-6447-49fe-a540-c3558bd3cd8c.gif" width="520" height="320"/> | - 프론트엔드 : 유정인 <br> - 백엔드 : 김수현        |
+| Nav & Footer             | <img src = "https://velog.velcdn.com/images/trtw9889/post/96461d1a-4f67-4c5c-a0ed-c21fa990f1b7/image.png" width="520" height="320"> | -프론트엔드 : 권유정 <br> -백엔드 :            |
 
 
 
