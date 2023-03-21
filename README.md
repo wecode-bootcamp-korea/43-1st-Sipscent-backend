@@ -66,8 +66,7 @@
 | 상품상세 페이지 & 장바구니         | <img src="https://user-images.githubusercontent.com/124610396/226342836-7aebada0-737b-406c-9e0c-e8ac814a61e8.gif" width="520" height="320"/> | - 프론트엔드 : 권유정 <br> - 백엔드 : 임수정        |
 | 주문 & 결제페이지      | <img src="https://user-images.githubusercontent.com/124610396/226344395-83dee21f-259e-4be6-9ed7-3c3b1aab916b.gif" width="520" height="320"/>| - 프론트엔드 : 유정인 <br> - 백엔드 : 김수현        |
 | 결제완료페이지     | <img src="https://user-images.githubusercontent.com/124610396/226344520-7456e9d9-6447-49fe-a540-c3558bd3cd8c.gif" width="520" height="320"/> | - 프론트엔드 : 유정인 <br> - 백엔드 : 김수현        |
-| 로그아웃            | <img src =  "<img src="https://user-images.githubusercontent.com/122195011/226504144-a3f59738-1264-4266-8a18-0ffd432e6df6.gif"
-width="520" height="320" /> | - 프론트엔드 : 권유정,유정인 <br> - 백엔드 :            |
+| 로그아웃            | <img src="https://user-images.githubusercontent.com/122195011/226504144-a3f59738-1264-4266-8a18-0ffd432e6df6.gif" width="520" height="320"> | - 프론트엔드 : 권유정,유정인 <br> - 백엔드 :  |
 | Nav & Footer             | <img src = "https://velog.velcdn.com/images/trtw9889/post/96461d1a-4f67-4c5c-a0ed-c21fa990f1b7/image.png" width="520" height="320"> | - 프론트엔드 : 권유정 <br> - 백엔드 :            |
 
 
