@@ -5,7 +5,7 @@ CREATE TABLE items(
   item_type_id INT NOT NULL,
   category_id INT NOT NULL,
   image_url VARCHAR(1000) NOT NULL,
-  price DECIMAL(8,2) NOT NULL,
+  price DECIMAL(65,2) NOT NULL,
   description VARCHAR(100) NOT NULL,
   size_id INT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -18,3 +18,4 @@ CREATE TABLE items(
 
 -- migrate:down
 DROP TABLE items
+
